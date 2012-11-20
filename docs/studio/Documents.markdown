@@ -4,23 +4,21 @@ This screen gives an overview of all documents in the RavenDB server instance.
 
 ## Documents listing
 
-The documents are loaded from the database, newest first, and displayed with their ID and Collection name - documents from different collections are striped with different colors:
+The documents are loaded from the database, newest first, documents from different collections are striped with different colors, in the default view you will get the "Details" view :
 
 ![Figure 1: Documents listing](Images/studio_documents_1.PNG)
 
 {INFO A **Collection** in RavenDB is a group of documents sharing the same entity name. It is not a "database table", but rather a logical way of thinking of document groups. /}
 
-Paging buttons are available above the documents list to allow you to go back and forth through it:
+In the left of the view you will find a couple of buttons.
 
-![](Images/studio_base_6.PNG)
+![](Images/studio_base_11.PNG)
 
-Next to that you will find a button allowing you to change the size of the document preview in the listing - from Compact view which only shows the collection name and the document id to Expanded view that will show the data of the document as a JSON string:
+The left button allows you to Export to CSV.
+
+The right button allows you to change the size of the document preview in the listing - from Details view to Extra Large Card view that will show the data of the document as a JSON string (by clicking on the icon toggles between the different views):
 
 ![Figure 2: Changing the size of the document preview in listing](Images/studio_base_7.PNG)
-
-Either way, hovering over a document will show a tooltip with the document JSON representation:
-
-![Figure 3: Data tooltip](Images/studio_documents_3.PNG)
 
 ## Editing a document
 
@@ -35,7 +33,13 @@ The document ID
 
 ![Figure 4: Editing a document](Images/studio_documents_4.PNG)
 
-RavenDB saves additional data on each document, such as it's Collection association (`Raven-Entity-Name`), and all that info can be viewed and edited through the metadata tab:
+RavenDB saves additional data on each document, such as it's Collection association (`Raven-Entity-Name`), and all that info can b
+
+----------
+
+
+----------
+e viewed and edited through the metadata tab:
 
 ![Figure 5: Editing metadata](Images/studio_documents_7.PNG)
 
@@ -43,32 +47,41 @@ On the top right corner of this screen you will find several buttons:
 
 ----------
 
-
-- Search
 - Save changes
 - Reformat Document: will remove empty line and fix indentation
-- Delete Document: to permanently delete the current document, will prompt before doing the delete
+- Outlining: Select whether to enable, disable or auto collapse outlining
 - Refresh: will reload the document from the server
+- Delete Document: to permanently delete the current document, will prompt before doing the delete
+- Search
+- Paging between the neighboring documents
 
 ![](Images/studio_documents_9.PNG)
 
 To the right of the form some statistics are shown - the metadata of the current document, formatted, and a list of possible reference found in it. Clicking on a reference will open that document for editing, if it exists in your database.
 
+----------
+
+
 ![Document Fig 8](Images/studio_documents_8.PNG)
 
 ## Other options
 
-Back in the main listing screen, at the top right corner of the screen you will find 2 additional buttons:  
+Back in the main listing screen, at the top right corner of the screen you will find 2 additional Options:  
 
 ![](Images/studio_base_5.PNG)
 
-Clicking the "Edit document by Id" will pop-up an input box, where you can enter the document ID you wish to edit:
+Click on the "Go To Document" and start typing the id of the document you want to edit and suggestions for your in will appear:
 
 ![](Images/studio_base_9.PNG)
 
 If no document exists in the database for the ID you provide you will be redirected to the Documents tab, otherwise the Document edit page will load with the requested document.
 
-Clicking the "Create a Document" button will open the document editing screen, but this time with empty fields. After providing a unique ID for the document and filling some data for it, clicking on Save will create it on the server.
+Clicking the "New" button will open the document editing screen, but this time with empty fields. After providing a unique ID for the document and filling some data for it, clicking on Save will create it on the server.
+
+If you click on the arrow by the "New" button you will have several options where you will go to the respective pages for each item you want to create:
+
+![](Images/studio_base_10.PNG)
+
 
 For a new document created through the Studio the `Raven-entity-Name` metadata attribute which sets its collection is set by the text before the '/' in the provided ID (with first letter in capital), so the a document with ID "albums/626" will be assigned to the "Albums" collection.
 

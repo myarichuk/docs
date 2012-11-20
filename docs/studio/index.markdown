@@ -8,28 +8,14 @@ The Studio is accessible from any RavenDB server, regardless of how it is deploy
 
 ## Basic navigation
 
-At the top left of the page there are the navigation tabs, a link for each of the screens in the Studio:
-
+At the top left of the page there are the navigation tabs, a link for each of the screens in the Studio:  
 ![](Images/studio_base_1.PNG)  
 
-Some database-wide statistics are shown at the bottom of the screen:
-
+Some database-wide statistics are shown at the bottom of the screen:  
 ![](Images/studio_base_3.PNG)
 
-There you will also find the Licensing status and the build number:  
+There you will also find the Licensing status and the build number for the server and the studio:  
 ![](Images/studio_base_4.PNG)
-
-## The Summary Screen
-
-The summary screen is the default screen shown whenever you access the RavenDB Management Studio, showing the latest documents updated (or created) in the database.
-
-![](Images/studio_summery_2.PNG)
-
-When accessing an empty database (or tenant) the page will look like this:
-
-![](Images/studio_summery_1.PNG)
-
-Clicking on "Create sample data" will add some dummy MvcMusicStore data and indexes to the database. This is usually helpful to jumpstart the RavenDB learning process.
 
 ## Features overview
 
