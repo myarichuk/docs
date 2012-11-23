@@ -25,7 +25,9 @@ When RavenDB needs to store the results of your queries in the Lucene index, it 
 * * Sample, if we try to index 'Age', 18, we will have the following fields:
 * * * Age:18
 * * * Age_Range: [18 in a binary format that is applicable for range searching]
-* If the value does not match any of the above, unanalyzed field with name combined from supplied name and '_ConvertToJson' suffix and value 'true' will be created.
+* If the value does not match any of the above, will create fields recursively:
+* * The first will be an unanalyzed field with name combined from supplied name and '_ConvertToJson' suffix and value 'true' will be created.
+* * Other fields will be created from converted to JSON values of an object using identical algorithm that we are describing now
 
 Using this format, it is pretty easy to perform both exact queries and range queries, including when you need to detect nulls.
 
