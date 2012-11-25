@@ -8,18 +8,26 @@ By using Lucene as the indexing format, we can support some really fancy queryin
 
 If you are using the Raven Client API, you can simply use the Linq provider that comes with it and it will deal with most of those issues for you. If you want to query RavenDB externally, or if you want to understand how Raven manages those indexes and take advantage of advanced Lucene features, please read on.
 
-When RavenDB needs to store the results of your queries in the Lucene index, it analyzes each value, and produce the following results:
+When RavenDB needs to store the results of your queries in the Lucene index, it analyzes each value, and produces the following results:
 
-* If the value is null - create a single field with the unanalyzed value 'NULL_VALUE'.
+* If the value is null - create a single field with the unanalyzed value 'NULL_VALUE'. Note: 'NULL_VALUE' is excluded from field entry values.
 * If the value is string - create a single field with the supplied name and the value.
+* If the value is empty string - create a single field with the unanalyzed value 'EMPTY_STRING'.
 * If the value is set unanalyzed - create a single field with the value set to not analyzed.
 * If the value is date, create a single field with millisecond precision with the supplied name.
+* If the value is a byte array, create a single field with supplied name and JSON serialized value. Note: Binary values must be smaller than 1KB.
+* If the value is an array, will create fields recursively:
+* * The first will be created with a name combined from supplied name and '_IsArray' suffix with unanalyzed value 'true'.
+* * Other fields will be created using identical algorithm that we are describing now.
 * If the value is numeric (int, long, double, decimal, or float) will create two fields:
 * * The first will be created with the supplied name, containing the numeric value as an unanalyzed string. This is useful if you want to query the by the exact value.
 * * The second will be create with the name: '[name]_Range', containing the numeric value in a form that allows range queries.
 * * Sample, if we try to index 'Age', 18, we will have the following fields:
 * * * Age:18
 * * * Age_Range: [18 in a binary format that is applicable for range searching]
+* If the value does not match any of the above, will create fields recursively:
+* * The first will be an unanalyzed field with name combined from supplied name and '_ConvertToJson' suffix and value 'true' will be created.
+* * Other fields will be created from converted to JSON values of an object using identical algorithm that we are describing now
 
 Using this format, it is pretty easy to perform both exact queries and range queries, including when you need to detect nulls.
 
