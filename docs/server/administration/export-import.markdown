@@ -61,7 +61,7 @@ You can tweak the export/import process with the following parameters:
 
 ## SmugglerApi
 
-Alternatively, if you prefer to do export/import from code rather than from the console utility, you can use the SummglerApi class. In order to use this class you need to reference the Raven.Smugller.exe.
+Alternatively, if you prefer to do export/import from code rather than from the console utility, you can use the SmugglerApi class. In order to use this class you need to reference the Raven.Smugller.exe.
 
 Usage example:
 
