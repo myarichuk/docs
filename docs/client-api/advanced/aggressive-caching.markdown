@@ -21,4 +21,4 @@ Now, if there is a value in the cache for `users/1` that is at most 5 minutes ol
 
 {CODE aggressive_cache_query@Consumer\AggressiveCaching.cs /}
 
-{NOTE The Silverlight version of the RavenDB client don't have own implementation of the aggressive caching because Silverlight already has the built-in and actively working cache. /}
+{NOTE The Silverlight version of the RavenDB client doesn't have own implementation of the aggressive caching because Silverlight already has the built-in and actively working cache. /}
