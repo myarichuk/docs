@@ -67,12 +67,13 @@ namespace RavenCodeSamples.Server
 			var x =
 
 			#region indexreplication2
-			// Questions/TitleAndVoteCount
+			// Questions/VoteTotals
 			from question in docs.Questions
 			select new
 			{
 				Title = question.Title,
-				VoteCount = question.Votes.Length
+				UpVotes = question.Votes.Count(x => x.Up),
+				DownVotes = question.Votes.Count(x => !x.Up)
 			};
 
 			#endregion
@@ -80,13 +81,13 @@ namespace RavenCodeSamples.Server
 			#region indexreplication3
 			new Raven.Bundles.IndexReplication.Data.IndexReplicationDestination
 			{
-				Id = "Raven/IndexReplication/Questions/TitleAndVoteCount",
+				Id = "Raven/IndexReplication/Questions/VoteTotals",
 				ColumnsMapping =
-					{
-						{"Title", "Title"},
-						{"UpVotes", "UpVotes"},
-						{"DownVotes", "DownVotes"},
-					},
+				{
+					{"Title", "Title"},
+					{"UpVotes", "UpVotes"},
+					{"DownVotes", "DownVotes"},
+				},
 				ConnectionStringName = "Reports",
 				PrimaryKeyColumnName = "Id",
 				TableName = "QuestionSummaries"
