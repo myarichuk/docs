@@ -163,7 +163,7 @@ Besides requesting by using POST to get multiple documents you can also use HTTP
 
 ## Set based operations
 
-Typically, document databases don't support set based operations. Raven does for deletes and updates, for inserts, you can POST to the [bulk_docs](http://ravendb.net/docs/http-api/multi/http-api-multi-batching) endpoint (this is how the client API behaves).
+Typically, document databases don't support set based operations. Raven does it for deletes and updates. For inserts, you can POST to the [bulk_docs](http-api-multi#batching-requests) endpoint (this is how the Client API behaves).
 
 Set based operations are based on very simple idea, you pass a query to a Raven index, and Raven will delete all the documents matching the query. All operations that are supported with an [index query](http://ravendb.net/docs/http-api/http-api-indexes-querying) are supported for set based operations. You need to specify the index that you intend to operate on, the actual query, the [optional cut off point](http://ravendb.net/docs/theory/indexes/docs-http-indexes) and whatever to allow this operation over a stale index.
 
@@ -171,6 +171,8 @@ Note that Raven indexes are allowed to be stale. If the index for the set based 
 
 * cutOff - determines what is the cut off point for considering the index stale.
 * allowStale - determines if the operation is allowed to proceed on a stale index (default: false)
+
+The analogous Client API reference section you will find [here](../client-api/set-based-operations).
 
 ### Set based deletes
 
@@ -198,7 +200,7 @@ This is the equivalent for:
 
 ###Set based updates
 
-Set based updates work very similarly to set based deletes. They require an index to operate on an a query for this index. But they use the [PATCH format](http://ravendb.net/docs/http-api/singledocumentoperations/http-api-patch) as their payload. For example, if we wanted to mark all the users who haven't logged on recently as inactive, we could define the following index:
+Set based updates work very similarly to set based deletes. They require an index to operate on an a query for this index. But they use the [PATCH format](../http-api/http-api-single#patch) as their payload. For example, if we wanted to mark all the users who haven't logged on recently as inactive, we could define the following index:
 
 {CODE-START:plain /}
     from user in docs.Users
