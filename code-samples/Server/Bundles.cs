@@ -57,7 +57,8 @@ namespace RavenCodeSamples.Server
 				{
 					new Vote {Up = true, Comment = "Good!"},
 					new Vote {Up = false, Comment = "Nah!"},
-					new Vote {Up = true, Comment = "Nice..."}
+					new Vote {Up = true, Comment = "Nice..."},
+					new Vote {Up = false, Comment = "No!"}
 				}
 			};
 			#endregion
@@ -67,7 +68,7 @@ namespace RavenCodeSamples.Server
 			var x =
 
 			#region indexreplication2
-			// Questions/VoteTotals
+			// Questions/TitleAndVoteCount
 			from question in docs.Questions
 			select new
 			{
@@ -81,7 +82,7 @@ namespace RavenCodeSamples.Server
 			#region indexreplication3
 			new Raven.Bundles.IndexReplication.Data.IndexReplicationDestination
 			{
-				Id = "Raven/IndexReplication/Questions/VoteTotals",
+				Id = "Raven/IndexReplication/Questions/TitleAndVoteCount",
 				ColumnsMapping =
 				{
 					{"Title", "Title"},
