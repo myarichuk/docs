@@ -16,11 +16,16 @@ namespace ASP.NET_WebApi.Controllers
 			return Session.Query<WebData>().Select(data => data.Name).ToListAsync();
 		}
 
-		public HttpResponseMessage Put([FromBody]string value)
+		public HttpResponseMessage Put(WebData data)
 		{
-			Session.Store(new WebData { Name = value });
+			if (data == null)
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Null data.");
+			}
 
-			return new HttpResponseMessage(HttpStatusCode.Created);
+			Session.Store(data);
+
+			return Request.CreateResponse(HttpStatusCode.Created);
 		}
 	}
 }

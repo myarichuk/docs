@@ -10,6 +10,8 @@ namespace RavenCodeSamples.Server
 		public Smuggler()
 		{
 			#region smuggler-api
+			var smugglerOptions = new SmugglerOptions { };
+
 			var connectionStringOptions = new RavenConnectionStringOptions
 			{
 				ApiKey = "ApiKey",
@@ -17,9 +19,9 @@ namespace RavenCodeSamples.Server
 				DefaultDatabase = "database",
 				Url = "http://localhost:8080",
 			};
-			var smugglerApi = new SmugglerApi(connectionStringOptions);
-			smugglerApi.ExportData(new SmugglerOptions { File = "dump.raven", OperateOnTypes = ItemType.Documents | ItemType.Indexes | ItemType.Attachments });
-			smugglerApi.ImportData(new SmugglerOptions { File = "dump.raven", OperateOnTypes = ItemType.Documents | ItemType.Indexes });
+			var smugglerApi = new SmugglerApi(smugglerOptions, connectionStringOptions);
+			smugglerApi.ExportData(new SmugglerOptions { BackupPath = "dump.raven", OperateOnTypes = ItemType.Documents | ItemType.Indexes | ItemType.Attachments });
+			smugglerApi.ImportData(new SmugglerOptions { BackupPath = "dump.raven", OperateOnTypes = ItemType.Documents | ItemType.Indexes });
 			#endregion
 		}
 	}

@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using Raven.Client.Linq;
-
-namespace RavenCodeSamples.Consumer
+﻿namespace RavenCodeSamples.Consumer
 {
+	using Raven.Client;
+	using Raven.Client.Linq;
+
 	public class Async : CodeSampleBase
 	{
 		public void WorkingAsync()

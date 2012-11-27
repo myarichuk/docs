@@ -80,7 +80,7 @@ namespace RavenCodeSamples.Consumer
 		#region IShardResolutionStrategy
 		public class ShardResolutionByRegion : IShardResolutionStrategy
 		{
-			public string GenerateShardIdFor(object entity)
+			public string GenerateShardIdFor(object entity, ITransactionalDocumentSession sessionMetadata)
 			{
 				var company = entity as Company;
 				if (company != null)

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using Newtonsoft.Json;
-using Raven.Abstractions.Data;
+﻿using Raven.Abstractions.Data;
 using Raven.Abstractions.Indexing;
 using Raven.Bundles.Authorization.Model;
 using Raven.Client.Authorization;
@@ -11,6 +6,12 @@ using Raven.Client.Document;
 using Raven.Client.Exceptions;
 using Raven.Client.Indexes;
 using Raven.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+
+using Formatting = Raven.Imports.Newtonsoft.Json.Formatting;
 
 namespace RavenCodeSamples.Server
 {

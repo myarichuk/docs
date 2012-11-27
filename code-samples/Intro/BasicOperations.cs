@@ -105,7 +105,7 @@ namespace RavenCodeSamples.Intro
 					#endregion
 
 					#region deleting_document_2
-					session.Advanced.DatabaseCommands.Delete("posts/1234", null);
+					session.Advanced.DocumentStore.DatabaseCommands.Delete("posts/1234", null);
 					#endregion
 
 					#region deleting_document_using_defer

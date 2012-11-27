@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Raven.Imports.Newtonsoft.Json;
+using Raven.Imports.Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
 using System.Reflection;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace RavenCodeSamples.Consumer
 {
-    public class Advanced : CodeSampleBase
+	public class Advanced : CodeSampleBase
     {
         public void CustomSerialization()
         {
