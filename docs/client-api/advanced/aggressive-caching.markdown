@@ -8,7 +8,7 @@ The second cache option is the number of cached requests. The default value is 2
 
 {CODE max_number_of_requests@Consumer\AggressiveCaching.cs /}
 
-The client utilizes the notion of the `304 Not Modified` RavenDB server's response and will server the data from the cache if available. 
+The client utilizes the notion of the `304 Not Modified` RavenDB server's response and will serve the data from the cache if available. 
 
 The aggressive caching feature goes even further. If you enable it RavenDB will not even ask the server whether anything has changed,
 it will simply return the reply directly from the local cache if it is there. Note that it means that you might get stale data, but it also means that you will get it fast.

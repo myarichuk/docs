@@ -105,6 +105,7 @@
     <Compile Include="CodeSampleBase.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Consumer\Advanced.cs" />
+    <Compile Include="Consumer\AggressiveCaching.cs" />
     <Compile Include="Consumer\Async.cs" />
     <Compile Include="Consumer\Attachments.cs" />
     <Compile Include="Consumer\DynamicQueries.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Consumer\MultiMap.cs" />
     <Compile Include="Consumer\Paging.cs" />
     <Compile Include="Consumer\Patching.cs" />
+    <Compile Include="ClientApi\Querying\LinqExtensions\Search.cs" />
     <Compile Include="Consumer\SetBased.cs" />
     <Compile Include="Consumer\Sharding.cs" />
     <Compile Include="Server\Smuggler.cs" />
