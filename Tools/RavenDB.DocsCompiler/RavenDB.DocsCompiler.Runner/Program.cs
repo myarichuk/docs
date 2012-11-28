@@ -8,7 +8,7 @@ namespace RavenDB.DocsCompiler.Runner
 	{
 		static void Main(string[] args)
 		{
-			const string basePath = @"z:\Projects\RavenDB\RavenDB-docs\";
+			const string basePath = @"C:\workspaces\HR\docs\";
 
 			IDocsOutput output = new HtmlDocsOutput
 									{

@@ -8,3 +8,4 @@ dynamic-fields.markdown	Dynamic fields
 index-administration.markdown	Index Administration
 custom-serialization.markdown	Custom serialization / deserialization
 aggressive-caching.markdown	Aggressive Caching
+client-side-listeners.markdown	Client-side Listeners
